@@ -38,3 +38,7 @@ def upload_file(file: UploadFile = File(...)):
     my_bucket = s3.Bucket(BUCKET_NAME)
     my_bucket.put_object(Key=upload_key, Body=file.file)
     return 'upload success'
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
